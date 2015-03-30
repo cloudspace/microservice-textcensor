@@ -1,5 +1,5 @@
 microservice:
-  name: 'Text Censor'
+  name: 'Text-Sanitizer'
   description: 'Searches for and filters offensive words.'
   docker_image: 'johnleeroy/text_censor'
   docker_image_tag: '0.11'
@@ -10,15 +10,19 @@ microservice:
   developer_name: 'johnleeroy'
   developer_type: 'User'
   published: true
-  command: 'bundle exec ruby sanitizer.rb [text] [optional_censor_type]'
+  command: 'bundle exec ruby sanitizer.rb [text] [censortype]'
   inputs:
     text:
       param_type: 'Alphanumeric'
       description: 'the text you want to filter'
-    optional_censor_type:
+      required: true
+      secure: false
+    censortype:
       param_type: 'Alphanumeric'
       description: 'Pick from the following: default, garbled, stars, vowels, nonconsonants, [write a word]'
+      required: false
+      secure: false
   outputs:
-    filtered_text:
+    filteredtext:
       param_type: 'Alphanumeric'
       description: 'the updated text without offensive language'

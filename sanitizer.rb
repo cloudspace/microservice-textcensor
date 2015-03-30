@@ -1,6 +1,6 @@
 
 require 'rubygems'
-require 'Obscenity'
+require 'obscenity'
 require 'yaml'
 
 # CENSOR TYPES
